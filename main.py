@@ -72,8 +72,8 @@ for i, row in enumerate(data[1:], start=2):  # Skip header row, start at row 2
 
 
     # Append data
-    results_target1.append([date, '', 'GUX075', concepto, '', '', comprobante, email, valor])
-    print(f"Gastos Row {i}: {[date, '', 'GUX075', concepto, '', '', comprobante, email, valor]}")
+    results_target1.append([date_str, '', 'GUX075', concepto, '', '', comprobante, email, valor])
+    print(f"Gastos Row {i}: {[date_str, '', 'GUX075', concepto, '', '', comprobante, email, valor]}")
     # Mark row for update
     processed_rows.append(i)
 
