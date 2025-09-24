@@ -71,9 +71,11 @@ for i, row in enumerate(data[1:], start=2):  # Skip header row, start at row 2
         valor = ""
 
 
-    # Append data
-    results_target1.append([date_str, '', 'GUX075', concepto, '', '', comprobante, email, valor])
-    print(f"Gastos Row {i}: {[date_str, '', 'GUX075', concepto, '', '', comprobante, email, valor]}")
+    # Remove leading "'" from date_str and valor if present
+    date_str_clean = date_str.lstrip("'")
+    valor_clean = valor if not (isinstance(valor, str) and valor.startswith("'")) else valor.lstrip("'")
+    results_target1.append([date_str_clean, '', 'GUX-075', concepto, '', '', comprobante, email, valor_clean])
+    print(f"Gastos Row {i}: {[date_str_clean, '', 'GUX-075', concepto, '', '', comprobante, email, valor_clean]}")
     # Mark row for update
     processed_rows.append(i)
 
